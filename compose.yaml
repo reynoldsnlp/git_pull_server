@@ -1,0 +1,16 @@
+# run `docker compose up -d`
+services:
+  gps:
+    image: reynoldsnlp/gps
+    env_file: .env
+    environment: 
+      - GPS_ROOT_DIR=${GPS_ROOT_DIR}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5055:5055
+    restart: always
+    volumes:
+      - .:/app
+      - ${GPS_ROOT_DIR}:${GPS_ROOT_DIR}
