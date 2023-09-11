@@ -15,4 +15,4 @@ EXPOSE 5000
 # SCRIPT_NAME is used by gunicorn to add prefix to paths, e.g. 0.0.0.0:5055/git_pull_server
 ENV SCRIPT_NAME=/git_pull_server
 
-CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5055", "--error-logfile", "gps-error.log", "--access-logfile", "gps-access.log", "--capture-output", "--log-level", "debug", "gps:app"]
+CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:5055", "--capture-output", "--log-level", "debug", "gps:app"]
